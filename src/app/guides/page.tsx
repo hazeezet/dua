@@ -4,13 +4,11 @@ import React, { useState } from 'react';
 import { duaGuides } from '@/lib/mockData';
 import Sidebar from '@//components/Sidebar';
 import Header from '@//components/Header';
-import BookmarkPanel from '@//components/BookmarkPanel';
 import Link from 'next/link';
 import { ArrowRight, BookOpen } from 'lucide-react';
 
 export default function GuidesPage() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [bookmarkPanelOpen, setBookmarkPanelOpen] = useState(false);
 
     return (
         <div className="flex h-screen overflow-hidden islamic-pattern-bg bg-background">
@@ -22,7 +20,6 @@ export default function GuidesPage() {
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <Header
                     onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
-                    onOpenBookmarks={() => setBookmarkPanelOpen(true)}
                 />
 
                 <main className="flex-1 overflow-y-auto">
@@ -83,11 +80,6 @@ export default function GuidesPage() {
                     </div>
                 </main>
             </div>
-
-            <BookmarkPanel
-                isOpen={bookmarkPanelOpen}
-                onClose={() => setBookmarkPanelOpen(false)}
-            />
         </div>
     );
 }

@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation';
 import { duaGuides } from '@/lib/mockData';
 import Sidebar from '@//components/Sidebar';
 import Header from '@//components/Header';
-import BookmarkPanel from '@//components/BookmarkPanel';
 import Link from 'next/link';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 
@@ -13,7 +12,6 @@ export default function GuideDetailPage() {
     const params = useParams();
     const slug = params.slug as string;
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [bookmarkPanelOpen, setBookmarkPanelOpen] = useState(false);
     const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set([0]));
 
     const guide = duaGuides.find((g) => g.slug === slug);
@@ -45,7 +43,6 @@ export default function GuideDetailPage() {
                 <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                     <Header
                         onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
-                        onOpenBookmarks={() => setBookmarkPanelOpen(true)}
                     />
                     <main className="flex-1 overflow-y-auto">
                         <div className="max-w-3xl mx-auto px-4 md:px-6 py-16 text-center relative z-10">
@@ -71,7 +68,6 @@ export default function GuideDetailPage() {
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <Header
                     onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
-                    onOpenBookmarks={() => setBookmarkPanelOpen(true)}
                 />
 
                 <main className="flex-1 overflow-y-auto">
@@ -227,11 +223,6 @@ export default function GuideDetailPage() {
                     </div>
                 </main>
             </div>
-
-            <BookmarkPanel
-                isOpen={bookmarkPanelOpen}
-                onClose={() => setBookmarkPanelOpen(false)}
-            />
         </div>
     );
 }

@@ -11,7 +11,6 @@ import Header from '@/components/Header';
 import SearchBar from '@/components/SearchBar';
 import SuggestedChips from '@/components/SuggestedChips';
 import DuaResults from '@/components/DuaResults';
-import BookmarkPanel from '@/components/BookmarkPanel';
 import { useOnlineStatus } from '@/lib/useOnlineStatus';
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
     const [hasSearched, setHasSearched] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [bookmarkPanelOpen, setBookmarkPanelOpen] = useState(false);
     const [searchCount, setSearchCount] = useState(0);
     const [totalResults, setTotalResults] = useState(0);
     const abortRef = useRef<AbortController | null>(null);
@@ -126,7 +124,6 @@ export default function Home() {
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <Header
                     onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
-                    onOpenBookmarks={() => setBookmarkPanelOpen(true)}
                 />
 
                 <main className="flex-1 overflow-y-auto">
@@ -215,11 +212,6 @@ export default function Home() {
                     </div>
                 </main>
             </div>
-
-            <BookmarkPanel
-                isOpen={bookmarkPanelOpen}
-                onClose={() => setBookmarkPanelOpen(false)}
-            />
         </div>
     );
 }
