@@ -43,7 +43,7 @@ export default function RootLayout({
                 <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg" />
                 <link rel="apple-touch-icon" href="/icons/icon-192.png" />
             </head>
-            <body className={`${inter.variable} ${amiri.variable} antialiased`}>
+            <body className={`${inter.variable} ${amiri.variable} antialiased overflow-hidden`}>
                 <Providers>{children}</Providers>
                 <SwRegister />
             </body>

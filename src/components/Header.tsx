@@ -3,6 +3,7 @@
 import React from 'react';
 import { useBookmarks } from '@/lib/BookmarkContext';
 import { Menu, Bookmark, Moon } from 'lucide-react';
+import Link from 'next/link';
 
 interface HeaderProps {
   onToggleSidebar: () => void;
@@ -31,7 +32,7 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
 
                 {/* Right: bookmark toggle */}
                 <div className="flex items-center gap-2">
-                    <a
+                    <Link
                         href="/saved"
                         className="relative w-9 h-9 rounded-lg flex items-center justify-center text-text-muted hover:text-accent-gold hover:bg-surface-hover transition-all cursor-pointer"
                         aria-label="Open bookmarks"
@@ -42,7 +43,7 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
                                 {totalBookmarks}
                             </span>
                         )}
-                    </a>
+                    </Link>
                 </div>
             </div>
         </header>

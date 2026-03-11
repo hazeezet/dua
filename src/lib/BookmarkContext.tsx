@@ -12,6 +12,7 @@ interface BookmarkContextType {
   getBookmarkedDuas: () => Dua[];
   clearAll: () => void;
   totalBookmarks: number;
+  isHydrated: boolean;
 }
 
 const BookmarkContext = createContext<BookmarkContextType | undefined>(undefined);
@@ -86,6 +87,7 @@ export function BookmarkProvider({ children }: { children: React.ReactNode }) {
                 getBookmarkedDuas,
                 clearAll,
                 totalBookmarks: bookmarks.length,
+                isHydrated,
             }}
         >
             {children}
