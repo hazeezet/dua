@@ -50,7 +50,7 @@ Built with love for the last 10 nights of Ramadan, it works offline, installs on
 | Data Fetching | [TanStack Query v5](https://tanstack.com/query) |
 | Icons | [Lucide React](https://lucide.dev) |
 | Package Manager | [pnpm](https://pnpm.io) |
-| Backend | Rust · AWS Lambda ([dua-backend](../dua-backend)) |
+| Backend | Rust · AWS Lambda ([dua-backend](https://github.com/hazeezet/dua-backend)) |
 
 ---
 
