@@ -47,32 +47,29 @@ export default function DuaResults({
         return (
             <div className="flex flex-col items-center justify-center py-16 text-center">
                 <div className="relative mb-6">
-                    <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-primary/10 to-accent-gold/10 border border-card-border flex items-center justify-center">
-                        <span className="text-5xl">🤲</span>
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-accent-gold/20 flex items-center justify-center" style={{ animation: 'star-twinkle 2s ease-in-out infinite' }}>
-                        <span className="text-xs">✦</span>
+                    <div className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                        <BookOpen size={32} className="text-primary" />
                     </div>
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">
-          What are you making dua for?
+                    Search for Supplications
                 </h3>
                 <p className="text-sm text-text-muted max-w-sm leading-relaxed">
-          Describe what&apos;s on your mind - a job, healing, forgiveness, family - and we&apos;ll generate a personalized collection of authentic duas from the Quran and Sunnah, just for you.
+                    Enter your situation or request—whether for guidance, health, family, or peace—to find authentic duas from the Quran and Sunnah.
                 </p>
 
                 <div className="mt-8 space-y-2 max-w-md w-full">
-                    <p className="text-[10px] text-text-muted uppercase tracking-widest mb-3">Example Duas</p>
+                    <p className="text-[10px] text-text-muted uppercase tracking-widest mb-3">Example Queries</p>
                     {[
-                        "I'm struggling to find a job and I need help with my finances...",
-                        "My mother is ill and I want her to recover fully...",
-                        "I want to be forgiven and guided to the straight path...",
+                        "Seeking guidance and clarity for an important decision",
+                        "Praying for good health and strength for my family",
+                        "Asking for forgiveness and contentment in heart",
                     ].map((example, i) => (
                         <div
                             key={i}
                             className="px-4 py-3 rounded-xl bg-subtle-bg border border-subtle-border text-left text-xs text-text-secondary italic leading-relaxed"
                         >
-              &ldquo;{example}&rdquo;
+                            &ldquo;{example}&rdquo;
                         </div>
                     ))}
                 </div>
@@ -88,7 +85,7 @@ export default function DuaResults({
                     <AlertTriangle size={28} className="text-danger" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">
-          Something went wrong
+                    Unable to load supplications
                 </h3>
                 <p className="text-sm text-text-muted max-w-sm mb-4">
                     {error}
@@ -98,7 +95,7 @@ export default function DuaResults({
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card-bg border border-card-border text-sm text-text-secondary hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all cursor-pointer"
                 >
                     <RefreshCw size={14} />
-          Try again
+                    Try again
                 </button>
             </div>
         );
@@ -108,14 +105,14 @@ export default function DuaResults({
     if (results.length === 0 && !isStreaming && !message) {
         return (
             <div className="flex flex-col items-center justify-center py-16 text-center">
-                <div className="w-20 h-20 rounded-2xl bg-card-bg border border-card-border flex items-center justify-center mb-4">
-                    <span className="text-4xl">🕌</span>
+                <div className="w-16 h-16 rounded-2xl bg-card-bg border border-card-border flex items-center justify-center mb-4 text-text-muted">
+                    <BookOpen size={28} />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">
-          We couldn&apos;t find specific duas for that
+                    No matching duas found
                 </h3>
                 <p className="text-sm text-text-muted max-w-sm">
-          Try describing your need differently. For example: &ldquo;I need help with health&rdquo;, &ldquo;seeking forgiveness&rdquo;, or &ldquo;looking for a job&rdquo;.
+                    Try refining your search terms (e.g., &ldquo;health&rdquo;, &ldquo;forgiveness&rdquo;, or &ldquo;guidance&rdquo;).
                 </p>
             </div>
         );

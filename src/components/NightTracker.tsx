@@ -53,7 +53,7 @@ export default function NightTracker() {
                         ? 'bg-primary/15 text-primary border border-primary/20'
                         : 'bg-accent-gold/10 text-accent-gold border border-accent-gold/15'
                     }`}>
-                        {hijriDate.isLastTenNights ? '🌙 Last 10 Nights' : `Day ${ramadanDay}/${ramadanTotalDays}`}
+                        {hijriDate.isLastTenNights ? 'Last 10 Nights' : `Day ${ramadanDay}/${ramadanTotalDays}`}
                     </span>
                 )}
             </div>

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Dua } from '@/lib/types';
 import { useBookmarks } from '@/lib/BookmarkContext';
-import { Bookmark, BookmarkCheck, Copy, Share2, Check } from 'lucide-react';
+import { Bookmark, BookmarkCheck, Copy, Share2, Check, BookOpen } from 'lucide-react';
 import AudioPlayer from './AudioPlayer';
 import { deleteCachedAudio } from '@/lib/audioCache';
 
@@ -111,9 +111,9 @@ export default function DuaCard({ dua, index }: DuaCardProps) {
             </p>
 
             {/* Reference */}
-            <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs text-text-muted">📖</span>
-                <span className="text-xs text-text-muted font-medium">{dua.reference}</span>
+            <div className="flex items-center gap-2 mb-3 text-text-muted">
+                <BookOpen size={13} className="shrink-0" />
+                <span className="text-xs font-medium">{dua.reference}</span>
             </div>
 
             {/* Context - why this dua is relevant */}

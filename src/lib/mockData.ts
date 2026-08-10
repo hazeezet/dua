@@ -9,11 +9,13 @@ interface MockDua {
   tags: string[];
 }
 
+import { LucideIcon } from 'lucide-react';
+
 export interface DuaGuide {
   slug: string;
   title: string;
   description: string;
-  icon: string;
+  icon: LucideIcon;
   color: string;
   sections: {
     heading: string;
@@ -24,12 +26,14 @@ export interface DuaGuide {
   }[];
 }
 
+import { BookOpen, Moon, Clock, ShieldCheck, AlertCircle } from 'lucide-react';
+
 export const duaGuides: DuaGuide[] = [
     {
         slug: 'how-to-make-dua',
         title: 'How to Make Dua',
         description: 'A step-by-step guide to making sincere and effective supplications to Allah.',
-        icon: '🤲',
+        icon: BookOpen,
         color: '#10b981',
         sections: [
             {
@@ -73,7 +77,7 @@ export const duaGuides: DuaGuide[] = [
         slug: 'dua-etiquette',
         title: 'Dua Etiquette & Manners',
         description: 'The proper adab (manners) to observe when making supplication for it to be accepted.',
-        icon: '📜',
+        icon: ShieldCheck,
         color: '#f5c842',
         sections: [
             {
@@ -110,7 +114,7 @@ export const duaGuides: DuaGuide[] = [
         slug: 'opening-supplications',
         title: 'Opening Supplications',
         description: 'Learn the recommended phrases to begin your dua with, as taught by the Prophet ﷺ.',
-        icon: '🌙',
+        icon: Moon,
         color: '#8b5cf6',
         sections: [
             {
@@ -151,7 +155,7 @@ export const duaGuides: DuaGuide[] = [
         slug: 'best-times-for-dua',
         title: 'Best Times for Dua',
         description: 'Discover the most blessed times when duas are most likely to be accepted by Allah.',
-        icon: '⏰',
+        icon: Clock,
         color: '#06b6d4',
         sections: [
             {
@@ -200,7 +204,7 @@ export const duaGuides: DuaGuide[] = [
         slug: 'things-to-avoid',
         title: 'Things to Avoid in Dua',
         description: 'Common mistakes and prohibited actions that may prevent your dua from being accepted.',
-        icon: '⚠️',
+        icon: AlertCircle,
         color: '#ef4444',
         sections: [
             {

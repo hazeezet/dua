@@ -6,7 +6,7 @@ import { duaGuides } from '@/lib/mockData';
 import Sidebar from '@//components/Sidebar';
 import Header from '@//components/Header';
 import Link from 'next/link';
-import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronRight, BookOpen } from 'lucide-react';
 
 export default function GuideDetailPage() {
     const params = useParams();
@@ -46,8 +46,8 @@ export default function GuideDetailPage() {
                     />
                     <main className="flex-1 overflow-y-auto">
                         <div className="max-w-3xl mx-auto px-4 md:px-6 py-16 text-center relative z-10">
-                            <div className="w-20 h-20 rounded-2xl bg-card-bg border border-card-border flex items-center justify-center mb-5 mx-auto">
-                                <span className="text-4xl">📖</span>
+                            <div className="w-16 h-16 rounded-2xl bg-card-bg border border-card-border flex items-center justify-center mb-5 mx-auto text-text-muted">
+                                <BookOpen size={28} />
                             </div>
                             <h1 className="text-xl font-semibold text-foreground mb-2">Guide not found</h1>
                             <p className="text-sm text-text-muted mb-6">The guide you&apos;re looking for doesn&apos;t exist.</p>
@@ -86,10 +86,10 @@ export default function GuideDetailPage() {
                         <div className="mb-8">
                             <div className="flex items-center gap-4 mb-4">
                                 <div
-                                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+                                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                                     style={{ backgroundColor: `${guide.color}15`, border: `1px solid ${guide.color}25` }}
                                 >
-                                    {guide.icon}
+                                    <guide.icon size={28} style={{ color: guide.color }} />
                                 </div>
                                 <div>
                                     <h1 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
@@ -174,9 +174,10 @@ export default function GuideDetailPage() {
                                                 )}
 
                                                 {section.reference && (
-                                                    <p className="text-xs text-text-muted pl-10">
-                            📖 {section.reference}
-                                                    </p>
+                                                    <div className="flex items-center gap-1.5 text-xs text-text-muted pl-10">
+                                                        <BookOpen size={12} className="shrink-0" />
+                                                        <span>{section.reference}</span>
+                                                    </div>
                                                 )}
                                             </div>
                                         )}

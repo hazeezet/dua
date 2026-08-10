@@ -142,21 +142,14 @@ export default function Home() {
                         <div className={`text-center mb-8 transition-all duration-500 ${hasSearched ? '' : 'pt-8 md:pt-16'}`}>
                             {!hasSearched && (
                                 <div className="mb-8 fade-in-up">
-                                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                                        <span className="text-xs text-primary font-medium">
-                                            Beta 1.0
-                                        </span>
-                                    </div>
                                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight leading-tight">
-                                        Your Personalized{' '}
+                                        Personalized{' '}
                                         <span className="bg-gradient-to-r from-primary via-emerald-400 to-accent-gold bg-clip-text text-transparent">
-                                            Dua Generator
+                                            Dua Collection
                                         </span>
                                     </h1>
                                     <p className="text-text-secondary text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-                                        What you&apos;re going through - your hopes, struggles, and needs - and I&apos;ll
-                                        generate a personalized collection of authentic duas from the Quran &amp; Sunnah.
+                                        Share what is on your heart—your needs, hopes, or difficulties—and receive authentic supplications curated from the Quran and Sunnah.
                                     </p>
                                 </div>
                             )}

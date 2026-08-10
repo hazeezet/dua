@@ -72,8 +72,8 @@ export default function SavedPage() {
                             </div>
                         ) : bookmarkedDuas.length === 0 ? (
                             <div className="flex flex-col items-center justify-center py-20 text-center">
-                                <div className="w-20 h-20 rounded-2xl bg-card-bg border border-card-border flex items-center justify-center mb-5">
-                                    <span className="text-4xl">🔖</span>
+                                <div className="w-16 h-16 rounded-2xl bg-card-bg border border-card-border flex items-center justify-center mb-5 text-text-muted">
+                                    <Bookmark size={28} />
                                 </div>
                                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   No saved duas yet

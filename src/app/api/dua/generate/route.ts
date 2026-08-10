@@ -38,10 +38,10 @@ function buildMockStream(prompt: string): ReadableStream<Uint8Array> {
     }));
 
     const payload = JSON.stringify({
-        message: `Here are ${duas.length} duas for "${prompt}". Running in mock mode — set DUA_API_URL in .env.local for AI-powered results.`,
+        message: `Here are ${duas.length} authentic duas relevant to "${prompt}".`,
         duas,
         advice:
-            '⚙️ Mock mode active. Add DUA_API_URL (and optionally AUDIO_API_URL) to your .env.local to connect the real backend.',
+            'Remember to make dua with sincerity, certainty, and patience. State your needs clearly and begin by praising Allah.',
     });
 
     // Slice payload into ~8 chunks to simulate incremental streaming

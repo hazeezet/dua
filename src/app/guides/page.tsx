@@ -54,10 +54,10 @@ export default function GuidesPage() {
                                 >
                                     <div className="flex items-start gap-4">
                                         <div
-                                            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl transition-transform group-hover:scale-110"
+                                            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110"
                                             style={{ backgroundColor: `${guide.color}15`, border: `1px solid ${guide.color}25` }}
                                         >
-                                            {guide.icon}
+                                            <guide.icon size={22} style={{ color: guide.color }} />
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">

@@ -5,7 +5,7 @@ import { useBookmarks } from '@/lib/BookmarkContext';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import NightTracker from './NightTracker';
-import { X, Moon, Bookmark, BookOpen, Home, Download } from 'lucide-react';
+import { X, Moon, Bookmark, BookOpen, Home, Download, Clock, ShieldCheck, AlertCircle } from 'lucide-react';
 import { usePwaInstall } from '@/lib/usePwaInstall';
 
 interface SidebarProps {
@@ -116,13 +116,14 @@ export default function Sidebar({
 
                     <div className="space-y-0.5">
                         {[
-                            { href: '/guides/how-to-make-dua', icon: '🤲', label: 'How to Make Dua' },
-                            { href: '/guides/opening-supplications', icon: '🌙', label: 'Opening Duas' },
-                            { href: '/guides/best-times-for-dua', icon: '⏰', label: 'Best Times' },
-                            { href: '/guides/dua-etiquette', icon: '📜', label: 'Etiquette' },
-                            { href: '/guides/things-to-avoid', icon: '⚠️', label: 'Things to Avoid' },
+                            { href: '/guides/how-to-make-dua', icon: BookOpen, label: 'How to Make Dua' },
+                            { href: '/guides/opening-supplications', icon: Moon, label: 'Opening Duas' },
+                            { href: '/guides/best-times-for-dua', icon: Clock, label: 'Best Times' },
+                            { href: '/guides/dua-etiquette', icon: ShieldCheck, label: 'Etiquette' },
+                            { href: '/guides/things-to-avoid', icon: AlertCircle, label: 'Things to Avoid' },
                         ].map((guide) => {
                             const isActive = pathname === guide.href;
+                            const Icon = guide.icon;
                             return (
                                 <Link
                                     key={guide.href}
@@ -133,7 +134,7 @@ export default function Sidebar({
                                         : 'text-text-secondary hover:bg-surface-hover hover:text-foreground border border-transparent'
                                     }`}
                                 >
-                                    <span className="text-sm">{guide.icon}</span>
+                                    <Icon size={15} className="shrink-0 text-text-muted" />
                                     <span className="font-medium text-xs">{guide.label}</span>
                                 </Link>
                             );
