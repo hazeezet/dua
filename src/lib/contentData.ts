@@ -1,32 +1,19 @@
-// Mock data uses its own local type (not the API Dua type)
-interface MockDua {
-  id: string;
-  arabic: string;
-  transliteration: string;
-  translation: string;
-  reference: string;
-  category: string;
-  tags: string[];
-}
-
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon, BookOpen, Moon, Clock, ShieldCheck, AlertCircle } from 'lucide-react';
 
 export interface DuaGuide {
-  slug: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  color: string;
-  sections: {
-    heading: string;
-    content: string;
-    arabic?: string;
-    transliteration?: string;
-    reference?: string;
-  }[];
+    slug: string;
+    title: string;
+    description: string;
+    icon: LucideIcon;
+    color: string;
+    sections: {
+        heading: string;
+        content: string;
+        arabic?: string;
+        transliteration?: string;
+        reference?: string;
+    }[];
 }
-
-import { BookOpen, Moon, Clock, ShieldCheck, AlertCircle } from 'lucide-react';
 
 export const duaGuides: DuaGuide[] = [
     {
@@ -34,7 +21,7 @@ export const duaGuides: DuaGuide[] = [
         title: 'How to Make Dua',
         description: 'A step-by-step guide to making sincere and effective supplications to Allah.',
         icon: BookOpen,
-        color: '#10b981',
+        color: '#2e5cb8',
         sections: [
             {
                 heading: '1. Begin with Praising Allah',
@@ -78,7 +65,7 @@ export const duaGuides: DuaGuide[] = [
         title: 'Dua Etiquette & Manners',
         description: 'The proper adab (manners) to observe when making supplication for it to be accepted.',
         icon: ShieldCheck,
-        color: '#f5c842',
+        color: '#b45309',
         sections: [
             {
                 heading: 'Be in a State of Wudu',
@@ -240,7 +227,17 @@ export const duaGuides: DuaGuide[] = [
     },
 ];
 
-export const mockDuas: MockDua[] = [
+export interface FallbackDua {
+    id: string;
+    arabic: string;
+    transliteration: string;
+    translation: string;
+    reference: string;
+    category: string;
+    tags: string[];
+}
+
+export const fallbackDuas: FallbackDua[] = [
     {
         id: 'dua-001',
         arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا',
@@ -285,141 +282,6 @@ export const mockDuas: MockDua[] = [
         reference: 'Jami` at-Tirmidhi 3513',
         category: 'forgiveness',
         tags: ['forgiveness', 'pardon', 'laylatul qadr', 'mercy', 'ramadan', 'night of power'],
-    },
-    {
-        id: 'dua-006',
-        arabic: 'رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي',
-        transliteration: "Rabbish-rahli sadri wa yassir li amri wahlul 'uqdatan min lisani yafqahu qawli",
-        translation: 'My Lord, expand for me my chest, ease for me my task, and untie the knot from my tongue that they may understand my speech.',
-        reference: 'Quran 20:25-28',
-        category: 'guidance',
-        tags: ['guidance', 'speech', 'confidence', 'interview', 'presentation', 'job', 'employment', 'ease'],
-    },
-    {
-        id: 'dua-007',
-        arabic: 'اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي',
-        transliteration: "Allahumma 'aafini fi badani, Allahumma 'aafini fi sam'i, Allahumma 'aafini fi basari",
-        translation: 'O Allah, grant me health in my body. O Allah, grant me health in my hearing. O Allah, grant me health in my sight.',
-        reference: 'Sunan Abu Dawud 5090',
-        category: 'health',
-        tags: ['health', 'body', 'healing', 'sickness', 'illness', 'cure', 'wellbeing', 'eyes', 'ears'],
-    },
-    {
-        id: 'dua-008',
-        arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى',
-        transliteration: "Allahumma inni as'alukal-huda wat-tuqa wal-'afafa wal-ghina",
-        translation: 'O Allah, I ask You for guidance, piety, chastity, and self-sufficiency.',
-        reference: 'Sahih Muslim 2721',
-        category: 'guidance',
-        tags: ['guidance', 'piety', 'taqwa', 'chastity', 'self-sufficiency', 'provision'],
-    },
-    {
-        id: 'dua-009',
-        arabic: 'رَبِّ هَبْ لِي مِن لَّدُنكَ ذُرِّيَّةً طَيِّبَةً ۖ إِنَّكَ سَمِيعُ الدُّعَاءِ',
-        transliteration: "Rabbi hab li min ladunka dhurriyyatan tayyibah innaka sami'ud-du'a",
-        translation: 'My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication.',
-        reference: 'Quran 3:38',
-        category: 'family',
-        tags: ['family', 'children', 'offspring', 'marriage', 'spouse', 'fertility'],
-    },
-    {
-        id: 'dua-010',
-        arabic: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
-        transliteration: "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yunin waj'alna lil-muttaqina imama",
-        translation: 'Our Lord, grant us from among our spouses and offspring comfort to our eyes and make us leaders for the righteous.',
-        reference: 'Quran 25:74',
-        category: 'family',
-        tags: ['family', 'spouse', 'children', 'marriage', 'happiness', 'righteous', 'leadership'],
-    },
-    {
-        id: 'dua-011',
-        arabic: 'رَبِّ زِدْنِي عِلْمًا',
-        transliteration: "Rabbi zidni 'ilma",
-        translation: 'My Lord, increase me in knowledge.',
-        reference: 'Quran 20:114',
-        category: 'knowledge',
-        tags: ['knowledge', 'education', 'learning', 'study', 'exam', 'school', 'university', 'wisdom'],
-    },
-    {
-        id: 'dua-012',
-        arabic: 'اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي وَعَلِّمْنِي مَا يَنْفَعُنِي وَزِدْنِي عِلْمًا',
-        transliteration: "Allahumman-fa'ni bima 'allamtani wa 'allimni ma yanfa'uni wa zidni 'ilma",
-        translation: 'O Allah, benefit me with what You have taught me, teach me what will benefit me, and increase me in knowledge.',
-        reference: 'Jami` at-Tirmidhi 3599',
-        category: 'knowledge',
-        tags: ['knowledge', 'study', 'education', 'exam', 'learning', 'benefit', 'school'],
-    },
-    {
-        id: 'dua-013',
-        arabic: 'رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ',
-        transliteration: "Rabbana-ghfir li wa li walidayya wa lil mu'minina yawma yaqumul-hisab",
-        translation: 'Our Lord, forgive me and my parents and the believers the Day the account is established.',
-        reference: 'Quran 14:41',
-        category: 'forgiveness',
-        tags: ['forgiveness', 'parents', 'believers', 'day of judgment', 'mercy', 'family'],
-    },
-    {
-        id: 'dua-014',
-        arabic: 'رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ',
-        transliteration: "Rabbana zalamna anfusana wa in lam taghfir lana wa tarhamna lanakunanna minal-khasirin",
-        translation: 'Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.',
-        reference: 'Quran 7:23',
-        category: 'forgiveness',
-        tags: ['forgiveness', 'mercy', 'repentance', 'sin', 'tawbah', 'adam'],
-    },
-    {
-        id: 'dua-015',
-        arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',
-        transliteration: "Hasbunallahu wa ni'mal-wakil",
-        translation: 'Sufficient for us is Allah, and He is the best Disposer of affairs.',
-        reference: 'Quran 3:173',
-        category: 'protection',
-        tags: ['protection', 'trust', 'tawakkul', 'reliance', 'difficulty', 'hardship', 'anxiety', 'fear'],
-    },
-    {
-        id: 'dua-016',
-        arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ',
-        transliteration: "Allahumma inni as'alukal-'afiyah fid-dunya wal-akhirah",
-        translation: 'O Allah, I ask You for well-being in this world and the Hereafter.',
-        reference: 'Sunan Ibn Majah 3871',
-        category: 'health',
-        tags: ['health', 'wellbeing', 'safety', 'protection', 'hereafter', 'dunya'],
-    },
-    {
-        id: 'dua-017',
-        arabic: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ',
-        transliteration: "Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik",
-        translation: 'O Allah, help me to remember You, to give You thanks, and to worship You well.',
-        reference: 'Sunan Abu Dawud 1522',
-        category: 'gratitude',
-        tags: ['gratitude', 'worship', 'remembrance', 'dhikr', 'thankfulness', 'ibadah'],
-    },
-    {
-        id: 'dua-018',
-        arabic: 'رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
-        transliteration: "Rabbana afrigh 'alayna sabran wa thabbit aqdamana wansurna 'alal-qawmil-kafirin",
-        translation: 'Our Lord, pour upon us patience and plant firmly our feet and give us victory over the disbelieving people.',
-        reference: 'Quran 2:250',
-        category: 'patience',
-        tags: ['patience', 'perseverance', 'steadfastness', 'victory', 'strength', 'hardship'],
-    },
-    {
-        id: 'dua-019',
-        arabic: 'اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ دِقَّهُ وَجِلَّهُ وَأَوَّلَهُ وَآخِرَهُ وَعَلَانِيَتَهُ وَسِرَّهُ',
-        transliteration: "Allahumma-ghfir li dhanbi kullahu, diqqahu wa jillahu, wa awwalahu wa akhirahu, wa 'alaniyyatahu wa sirrahu",
-        translation: 'O Allah, forgive me all my sins, small and great, first and last, open and secret.',
-        reference: 'Sahih Muslim 483',
-        category: 'forgiveness',
-        tags: ['forgiveness', 'sin', 'repentance', 'mercy', 'tawbah', 'cleanse'],
-    },
-    {
-        id: 'dua-020',
-        arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ وَمِنْ قَلْبٍ لَا يَخْشَعُ وَمِنْ نَفْسٍ لَا تَشْبَعُ وَمِنْ دَعْوَةٍ لَا يُسْتَجَابُ لَهَا',
-        transliteration: "Allahumma inni a'udhu bika min 'ilmin la yanfa'u wa min qalbin la yakhsha'u wa min nafsin la tashba'u wa min da'watin la yustajabu laha",
-        translation: "O Allah, I seek refuge in You from knowledge that is not beneficial, from a heart that does not fear (You), from a soul that is never satisfied, and from a supplication that is not answered.",
-        reference: 'Sahih Muslim 2722',
-        category: 'knowledge',
-        tags: ['knowledge', 'heart', 'supplication', 'protection', 'humility', 'sincerity'],
     },
 ];
 

@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { duaGuides } from '@/lib/mockData';
+import { duaGuides } from '@/lib/contentData';
 import Sidebar from '@//components/Sidebar';
 import Header from '@//components/Header';
 import Link from 'next/link';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function GuidesPage() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -26,17 +26,11 @@ export default function GuidesPage() {
                     <div className="max-w-3xl mx-auto px-4 md:px-6 py-8 relative z-10">
                         {/* Page header */}
                         <div className="text-center mb-10 pt-4">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-5">
-                                <BookOpen size={13} className="text-primary" />
-                                <span className="text-xs text-primary font-medium">
-                  Learn &amp; Prepare
-                                </span>
-                            </div>
                             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3 tracking-tight">
-                Dua Guides
+                                Dua Guides
                             </h1>
                             <p className="text-text-secondary text-sm md:text-base max-w-md mx-auto leading-relaxed">
-                Learn how to make dua properly, the best times to supplicate, and the etiquette that makes your dua more likely to be accepted.
+                                Learn how to make dua properly, the best times to supplicate, and the etiquette that makes your dua more likely to be accepted.
                             </p>
                         </div>
 

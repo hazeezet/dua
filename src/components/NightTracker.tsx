@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motivationalHadith } from '@/lib/mockData';
+import { motivationalHadith } from '@/lib/contentData';
 import { getHijriDate, HijriDateInfo } from '@/lib/hijriDate';
 import { Loader2 } from 'lucide-react';
 

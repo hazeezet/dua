@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
-import { duaGuides } from '@/lib/mockData';
+import { duaGuides } from '@/lib/contentData';
 import Sidebar from '@//components/Sidebar';
 import Header from '@//components/Header';
 import Link from 'next/link';

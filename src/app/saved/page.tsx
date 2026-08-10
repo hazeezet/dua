@@ -83,7 +83,7 @@ export default function SavedPage() {
                                 </p>
                                 <Link
                                     href="/"
-                                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-emerald-400 text-white text-sm font-medium shadow-[0_0_20px_var(--primary-glow)] hover:shadow-[0_0_30px_var(--primary-glow)] transition-all"
+                                    className="px-5 py-2.5 rounded-xl bg-primary text-white text-sm font-medium shadow-[0_0_20px_var(--primary-glow)] hover:shadow-[0_0_30px_var(--primary-glow)] transition-all"
                                 >
                   Generate Duas
                                 </Link>

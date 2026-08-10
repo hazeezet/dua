@@ -1,5 +1,5 @@
+import { fallbackDuas } from '@/lib/contentData';
 import { NextRequest } from 'next/server';
-import { mockDuas } from '@/lib/mockData';
 
 // Private server-only env var - never exposed to the browser
 const DUA_API_URL = process.env.DUA_API_URL ?? '';
@@ -10,7 +10,7 @@ function buildMockStream(prompt: string): ReadableStream<Uint8Array> {
     const keywords = prompt.toLowerCase().split(/\W+/).filter(Boolean);
 
     // Score each dua against the prompt keywords
-    const scored = mockDuas.map((d) => {
+    const scored = fallbackDuas.map((d) => {
         let score = 0;
         for (const kw of keywords) {
             if (d.tags.some((t) => t.includes(kw) || kw.includes(t))) score += 2;
@@ -27,14 +27,14 @@ function buildMockStream(prompt: string): ReadableStream<Uint8Array> {
         .map((s) => s.d);
 
     // Fall back to first 5 if nothing matched
-    const results = top.length >= 2 ? top : mockDuas.slice(0, 5);
+    const results = top.length >= 2 ? top : fallbackDuas.slice(0, 5);
 
     const duas = results.map((d) => ({
         arabic: d.arabic,
         transliteration: d.transliteration,
         translation: d.translation,
         reference: d.reference,
-        context: `A supplication for ${d.category} — especially useful for ${d.tags.slice(0, 3).join(', ')}.`,
+        context: `A supplication for ${d.category}, especially useful for ${d.tags.slice(0, 3).join(', ')}.`,
     }));
 
     const payload = JSON.stringify({
@@ -62,7 +62,6 @@ function buildMockStream(prompt: string): ReadableStream<Uint8Array> {
 }
 
 export async function POST(request: NextRequest): Promise<Response> {
-    // ── Mock mode: no backend configured ────────────────────────────────────
     if (!DUA_API_URL) {
         let body: { prompt?: string };
         try {

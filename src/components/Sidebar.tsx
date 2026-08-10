@@ -47,7 +47,7 @@ export default function Sidebar({
                 <div className="p-5 border-b border-card-border">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex items-center gap-3 group">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-emerald-400 flex items-center justify-center shadow-[0_0_20px_var(--primary-glow)] group-hover:shadow-[0_0_30px_var(--primary-glow)] transition-shadow">
+                            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-[0_0_20px_var(--primary-glow)] group-hover:shadow-[0_0_30px_var(--primary-glow)] transition-shadow">
                                 <Moon size={20} className="text-white" />
                             </div>
                             <div>

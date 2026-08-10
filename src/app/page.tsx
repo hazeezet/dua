@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { suggestedQueries } from '@/lib/mockData';
+import { suggestedQueries } from '@/lib/contentData';
 import { Dua } from '@/lib/types';
 import { streamDuas } from '@/lib/sseParser';
 import { RotateCcw, WifiOff } from 'lucide-react';
@@ -144,12 +144,12 @@ export default function Home() {
                                 <div className="mb-8 fade-in-up">
                                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight leading-tight">
                                         Personalized{' '}
-                                        <span className="bg-gradient-to-r from-primary via-emerald-400 to-accent-gold bg-clip-text text-transparent">
+                                        <span className="text-primary">
                                             Dua Collection
                                         </span>
                                     </h1>
                                     <p className="text-text-secondary text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-                                        Share what is on your heart—your needs, hopes, or difficulties—and receive authentic supplications curated from the Quran and Sunnah.
+                                        Share what is on your heart (your needs, hopes, or difficulties) and receive authentic supplications curated from the Quran and Sunnah.
                                     </p>
                                 </div>
                             )}

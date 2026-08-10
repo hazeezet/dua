@@ -55,7 +55,7 @@ export default function DuaResults({
                     Search for Supplications
                 </h3>
                 <p className="text-sm text-text-muted max-w-sm leading-relaxed">
-                    Enter your situation or request—whether for guidance, health, family, or peace—to find authentic duas from the Quran and Sunnah.
+                    Enter your situation or request for guidance, health, family, or peace to find authentic duas from the Quran and Sunnah.
                 </p>
 
                 <div className="mt-8 space-y-2 max-w-md w-full">
