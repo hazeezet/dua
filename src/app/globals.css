@@ -33,38 +33,38 @@
   --card-shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
-/* ===== DARK MODE ===== */
+/* ===== DARK MODE - Pitch Black Theme ===== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0f1a;
-    --foreground: #e8e6e3;
-    --card-bg: rgba(15, 23, 42, 0.7);
-    --card-border: rgba(79, 128, 226, 0.25);
+    --background: #000000;
+    --foreground: #f4f4f5;
+    --card-bg: #09090b;
+    --card-border: #27272a;
     --primary: #4f80e2;
-    --primary-glow: rgba(79, 128, 226, 0.25);
-    --primary-dim: #1d3a77;
+    --primary-glow: rgba(79, 128, 226, 0.2);
+    --primary-dim: #1e293b;
     --accent-gold: #f59e0b;
     --accent-gold-glow: rgba(245, 158, 11, 0.15);
-    --sidebar-bg: rgba(8, 12, 24, 0.95);
-    --input-bg: rgba(15, 23, 42, 0.6);
-    --input-border: rgba(79, 128, 226, 0.3);
+    --sidebar-bg: #09090b;
+    --input-bg: #121215;
+    --input-border: #27272a;
     --input-focus: rgba(79, 128, 226, 0.5);
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --surface-hover: rgba(79, 128, 226, 0.12);
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --surface-hover: #18181b;
     --danger: #ef4444;
-    --subtle-bg: rgba(255, 255, 255, 0.04);
-    --subtle-border: rgba(255, 255, 255, 0.08);
-    --glass-overlay: rgba(15, 23, 42, 0.6);
-    --scrollbar-thumb: rgba(148, 163, 184, 0.3);
-    --scrollbar-hover: rgba(148, 163, 184, 0.5);
-    --shimmer-color: rgba(46, 92, 184, 0.12);
-    --skeleton-base: rgba(255, 255, 255, 0.06);
-    --skeleton-dim: rgba(255, 255, 255, 0.03);
-    --arabic-bg: rgba(245, 200, 66, 0.05);
-    --arabic-border: rgba(245, 200, 66, 0.1);
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-    --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+    --subtle-bg: #121215;
+    --subtle-border: #27272a;
+    --glass-overlay: rgba(0, 0, 0, 0.85);
+    --scrollbar-thumb: #3f3f46;
+    --scrollbar-hover: #52525b;
+    --shimmer-color: rgba(79, 128, 226, 0.12);
+    --skeleton-base: #18181b;
+    --skeleton-dim: #121215;
+    --arabic-bg: #14120b;
+    --arabic-border: #2e2612;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.9);
   }
 }
 
