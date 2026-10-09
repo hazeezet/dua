@@ -8,8 +8,8 @@ import AudioPlayer from './AudioPlayer';
 import { deleteCachedAudio } from '@/lib/audioCache';
 
 interface DuaCardProps {
-  dua: Dua;
-  index: number;
+    dua: Dua;
+    index: number;
 }
 
 export default function DuaCard({ dua, index }: DuaCardProps) {
@@ -85,7 +85,7 @@ export default function DuaCard({ dua, index }: DuaCardProps) {
                         className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer ${bookmarked
                             ? 'text-accent-gold bg-accent-gold/10'
                             : 'text-text-muted hover:text-accent-gold hover:bg-surface-hover'
-                        }`}
+                            }`}
                         title={bookmarked ? 'Remove bookmark' : 'Save dua'}
                     >
                         {bookmarked ? <BookmarkCheck size={15} /> : <Bookmark size={15} />}
@@ -127,9 +127,9 @@ export default function DuaCard({ dua, index }: DuaCardProps) {
             )}
 
             {/* Audio player */}
-            <div className="pt-3 border-t border-subtle-border">
+            {/* <div className="pt-3 border-t border-subtle-border">
                 <AudioPlayer duaId={dua.id} arabic={dua.arabic} persist={bookmarked} />
-            </div>
+            </div> */}
         </div>
     );
 }

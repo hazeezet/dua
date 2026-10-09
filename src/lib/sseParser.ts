@@ -77,7 +77,34 @@ export async function* streamDuas(
                 try { event = JSON.parse(line.slice(6)); } catch { continue; }
 
                 if (event.type === 'error') throw new Error(event.message ?? 'Stream error');
-                if (event.type === 'done') break outer;
+                if (event.type === 'done') {
+                    // Emit any remaining complete dua that wasn't emitted during streaming
+                    try {
+                        const finalData = parse(accumulated) as Partial<ApiDuaData>;
+                        if (Array.isArray(finalData.duas)) {
+                            const remainingDuas: Dua[] = [];
+                            for (let i = lastDuaCount; i < finalData.duas.length; i++) {
+                                const d = finalData.duas[i];
+                                if (d.arabic && d.transliteration && d.translation && d.reference && d.context) {
+                                    remainingDuas.push({
+                                        id: `gen-${i}-${Date.now()}`,
+                                        arabic: d.arabic,
+                                        transliteration: d.transliteration,
+                                        translation: d.translation,
+                                        reference: d.reference,
+                                        context: d.context,
+                                    });
+                                    lastDuaCount = i + 1;
+                                }
+                            }
+                            if (remainingDuas.length) yield { newDuas: remainingDuas };
+                        }
+                        if (finalData.advice && finalData.advice !== lastAdvice) {
+                            yield { advice: finalData.advice };
+                        }
+                    } catch { /* ignore */ }
+                    break outer;
+                }
 
                 if (event.type === 'chunk') {
                     accumulated += event.text ?? '';
@@ -94,6 +121,11 @@ export async function* streamDuas(
                         if (Array.isArray(partial.duas)) {
                             const newDuas: Dua[] = [];
                             for (let i = lastDuaCount; i < partial.duas.length; i++) {
+                                // A dua item is only truly complete if a subsequent dua has started
+                                // or if the advice field has started (meaning the entire duas array is closed).
+                                const isDuaFinished = i < partial.duas.length - 1 || Boolean(partial.advice);
+                                if (!isDuaFinished) break;
+
                                 const d = partial.duas[i];
                                 if (d.arabic && d.transliteration && d.translation && d.reference && d.context) {
                                     newDuas.push({

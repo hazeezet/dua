@@ -134,6 +134,35 @@ export async function streamGenerateDuas(
                 }
 
                 if (event.type === 'done') {
+                    try {
+                        const finalData = parse(accumulated) as Partial<ApiDuaData>;
+                        if (Array.isArray(finalData.duas)) {
+                            for (let i = lastDuaCount; i < finalData.duas.length; i++) {
+                                const apiDua = finalData.duas[i];
+                                if (
+                                    apiDua.arabic &&
+                                    apiDua.transliteration &&
+                                    apiDua.translation &&
+                                    apiDua.reference &&
+                                    apiDua.context
+                                ) {
+                                    const dua: Dua = {
+                                        id: `gen-${Date.now()}-${i}`,
+                                        arabic: apiDua.arabic,
+                                        transliteration: apiDua.transliteration,
+                                        translation: apiDua.translation,
+                                        reference: apiDua.reference,
+                                        context: apiDua.context,
+                                    };
+                                    callbacks.onDua(dua, i);
+                                    lastDuaCount = i + 1;
+                                }
+                            }
+                        }
+                        if (finalData.advice && finalData.advice !== lastAdvice) {
+                            callbacks.onAdvice(finalData.advice);
+                        }
+                    } catch { /* ignore */ }
                     callbacks.onDone();
                     return;
                 }
@@ -154,13 +183,16 @@ export async function streamGenerateDuas(
                         // Duas - emit each complete dua individually
                         if (partial.duas && Array.isArray(partial.duas)) {
                             for (let i = lastDuaCount; i < partial.duas.length; i++) {
+                                const isDuaFinished = i < partial.duas.length - 1 || Boolean(partial.advice);
+                                if (!isDuaFinished) break;
+
                                 const apiDua = partial.duas[i];
                                 if (
                                     apiDua.arabic &&
-                  apiDua.transliteration &&
-                  apiDua.translation &&
-                  apiDua.reference &&
-                  apiDua.context
+                                    apiDua.transliteration &&
+                                    apiDua.translation &&
+                                    apiDua.reference &&
+                                    apiDua.context
                                 ) {
                                     const dua: Dua = {
                                         id: `gen-${Date.now()}-${i}`,
